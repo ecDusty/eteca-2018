@@ -1,0 +1,51 @@
+#main-Nav {
+    margin: 0;
+    padding: 0;
+    min-height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    list-style: none;
+    display:flex;
+    background-color: $activeT-c1;
+    border: $menu-border;
+
+    .menu-Item {
+        flex-grow: 1;
+        display: flex;
+        padding: 10px;
+        text-align: center;
+        border-right: $menu-border;
+        width: calc(33% - 2px);
+
+        &:last-child {
+            border-right: none;
+        }
+
+        .icon {
+            margin: 0 auto;
+            font-size: 1.9em;
+            line-height: 1;
+
+            i {
+                margin-top: 2px;
+            }
+
+            svg {
+                width: 30px;
+                transform: translateY(2px);
+                path { fill: $menu-color; }
+            }
+        }
+
+        .icon {
+            color: $menu-color;
+        }
+
+        p {
+            margin-top:2px;
+            font-size: 0.3em;
+        }
+    }
+}

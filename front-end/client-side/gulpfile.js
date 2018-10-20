@@ -113,6 +113,12 @@ gulp.task('scripts-dist',['lint-dist','library-dist'], function () {
 =   Scripts  =
 =   for Dev  =
 =============*/
+gulp.task('json-dev', function () {
+  console.log(strt + 'LIBRARY SCRIPTS DEV' + end);
+
+  return gulp.src('src/sample-json/*.json')
+    .pipe(gulp.dest(TEST_DIR+'/json'));
+});
 gulp.task('library-dev', function () {
   console.log(strt + 'LIBRARY SCRIPTS DEV' + end);
 
@@ -120,7 +126,7 @@ gulp.task('library-dev', function () {
     .pipe(gulp.dest(TEST_JS));
 });
 
-gulp.task('scripts-dev',['lint-dev','library-dev'], function () {
+gulp.task('scripts-dev',['lint-dev','library-dev','json-dev'], function () {
   console.log(strt + 'SCRIPTS DEV' + end);
 
   return gulp.src(SCRIPTS_PATH)
