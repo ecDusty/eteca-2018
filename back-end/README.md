@@ -20,6 +20,8 @@ Authenticates the user (login)
 * ```/user/groopys.php?id={id}```
 Retrieves list of groopys attended (or will be attended) by user with ID
 
+* ```/user/checkin.php?code={code}```
+Checks in user after scanning QR code at groopy venue
 
 #### Restaurant
 
