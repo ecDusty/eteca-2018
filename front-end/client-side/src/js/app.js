@@ -1,4 +1,4 @@
-/* global google, ko, console */
+/* global google, ko, console JSONstringify */
 
 // Custom Code for application build
 class Modelgroopy {
@@ -12,7 +12,7 @@ class Modelgroopy {
 
     postG(url,options) {
         console.log(`Posting object:
-                    ${Options}`);
+                    ${options}`);
         return fetch(url,{
             method: `post`,
             body: JSONstringify(options)
@@ -21,7 +21,7 @@ class Modelgroopy {
 
     putG(url,options) {
         console.log(`Putting object:
-                    ${Options}`);
+                    ${options}`);
         return fetch(url,{
             method: `post`,
             body: JSONstringify(options)
@@ -30,7 +30,7 @@ class Modelgroopy {
 
     deleteG(url,options) {
         console.log(`Deleting object:
-                    ${Options}`);
+                    ${options}`);
         return fetch(url,{
             method: `post`,
             body: JSONstringify(options)
@@ -48,23 +48,35 @@ class Modelgroopy {
 class ClientgroopyViewModel {
     constructor() {
         //Pull In Model
+        const self = this;
         this.M = new Modelgroopy();
 
+        // Genearl Data
+        //
+        this.views = [
+            'groopys',
+            'My groopys',
+            'Profile'
+        ]
         //Main Menu Structure
-        this.activeMenu = ko.observable('');
+        this.activeMenu = ko.observable('groopys');
         this.MenuItem = function(name,imageURL,CSSclass) {
             this.name = name;
             this.url = imageURL;
             this.alt = `${this.name} Icon`;
             this.CSSclass = ko.observable(CSSclass);
-            this.active = ko.observable(false);
+            (self.activeMenu() == this.name) ? this.active = ko.observable(true) : this.active = ko.observable(false);
         }
-        this.mainMenuItems = [
-            new self.MenuItem('groopys'),
-            new self.MenuItem('My groopys'),
-            new self.MenuItem('Profile')
-        ]
 
+        this.mainMenuItems = [
+            new this.MenuItem(self.views[0]),
+            new this.MenuItem(self.views[1]),
+            new this.MenuItem(self.views[2])
+        ];
+
+        // Call Start the application
+        //
+        this.initApp();
     }
 
 
@@ -74,15 +86,19 @@ class ClientgroopyViewModel {
         if (item.active()) 
             item.active(false);
         else {
-            for (const mItem of self.mainMenuItems) {
+            for (const mItem of this.mainMenuItems) {
                 mItem.active(false);
             }
             item.active(true);
+            this.activeMenu(item.name);
         }
     }
 
-    testClass() {
-        console.log('Testing ES6 Class structure')
+    // Start the applciation
+    //
+
+    initApp() {
+
     }
 }
-ko.applyBindings(new ClientViewModel());
+ko.applyBindings(new ClientgroopyViewModel());

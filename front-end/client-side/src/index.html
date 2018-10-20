@@ -22,21 +22,55 @@
 <body>
 <!--  -->
 
-    <div class="app-Wrapper">
-        <ul id="main-Nav" data-bind="template: { name: 'Menu' foreach: mainMenuItems, as: item }">
-        </ul>
+    <div class="app-Wrapper" data-bind="tempalte: { name: activeView }">
     </div>
+    <ul id="main-Nav" data-bind="template: { name: 'Menu', foreach: mainMenuItems, as: 'item' }">
+    </ul>
 
 <!-- KNOCKOUT HTML Templates -->
 
     <!-- Sample template -->
-    <script type="text/html" id="">
-        
-    </script>
 
     <!-- MENU template -->
     <script type="text/html" id="Menu">
-        <li class="menu-Item" data-bind="css: { active: item.active() == true }">
+        <li class="menu-Item" data-bind="css: { active: item.active() == true }, click: $root.menuClick(item)">
+            <img data-bind=" attr: { src: item.url, alt: item.alt}" src="" alt="">
+            <p data-bind="text: item.name"></p>
+        </li>
+    </script>
+
+    
+
+    <!-- GROOPYS template -->
+    <script type="text/html" id="groopys">
+        <div>
+            <h1></h1>
+            <div class="location"></div>
+        </div>
+        <div class="specifics">
+            <div class="today">
+                <h4>Today</h4>
+            </div>
+            <div class="tomorrow">
+                <h4>Tomorrow</h4>
+            </div>
+        </div>
+        <ul class="groopy-list" data-bind="template: { name: 'GroopysItem', foreach: activeGroopyDay, as: 'item' }" ></ul>
+    </script>
+
+    <script type="text/html" id="GroopysItem">
+        <li class="groopy-item">
+            <h3 class="title" data-bind="item.title"></h3>
+            <p class="description" data-bind="item.description"></p>
+            <div class="attendies" ></div>
+        </li>
+    </script>
+
+    
+
+    <!-- MY GROUPYS template -->
+    <script type="text/html" id="Menu">
+        <li class="menu-Item" data-bind="css: { active: item.active() == true }, click: $root.menuClick(item)">
             <img data-bind=" attr: { src: item.url, alt: item.alt}" src="" alt="">
             <p data-bind="text: item.name"></p>
         </li>
@@ -63,7 +97,7 @@
 	  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0) });
 	  else window.addEventListener('load', loadDeferredStyles);
 	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+	<script async src="js/knockout-min.js"></script>
     <script async defer src="js/app.js"></script>
  
 	<!-- <script async defer
