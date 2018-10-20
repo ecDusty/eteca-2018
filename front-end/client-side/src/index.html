@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <title>Groopies | Get your social on!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="icon" href="" type="image/png">
+
+    <!-- Other tags -->
+
+    <!-- Open graph tags -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="./../test/css/inline-style.css" inline> -->
+</head>
+
+<body>
+<!--  -->
+
+    <div class="container-fluid">
+    </div>
+
+<!-- KNOCKOUT HTML Templates -->
+
+    <!-- Sample template -->
+    <script type="text/html" id="Menu">
+        <li class="menuItem" data-bind="css: { active: item.active() == true }, click: $root.menuRemoveActive ">
+            <img data-bind="attr: { src: item.icon, alt: item.alt, title: item.name }">
+            <p class="title" data-bind="text: item.name"></p>
+        </li>
+    </script>
+
+<!-- 
+**** Defferred CSS Styles ****
+**** Google's Async styles loader ****
+-->
+	<noscript id="deferred-styles">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </noscript>
+    
+	<script>
+	  var loadDeferredStyles = function() {
+		var addStylesNode = document.getElementById("deferred-styles");
+		var replacement = document.createElement("div");
+		replacement.innerHTML = addStylesNode.textContent;
+		document.body.appendChild(replacement)
+		addStylesNode.parentElement.removeChild(addStylesNode);
+	  };
+	  var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+		  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+	  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0) });
+	  else window.addEventListener('load', loadDeferredStyles);
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+    <script async defer src="js/app.js"></script>
+ 
+	<!-- <script async defer
+	src="https://maps.googleapis.com/maps/api/js??libraries=places,geometry,drawing&key=AIzaSyAaYL795gcBKEjS2Ud2Rb12A7hebgrT-Fc&v=3&callback=octo.initMap"></script> 
+	 -->
+</body>
+
+</html>
