@@ -1,14 +1,13 @@
 <?php
 class Database{
  
-    // specify your own database credentials
-    private $host = "23.98.37.11";
+    // database credentials
+    private $host = "localhost";
     private $db_name = "groopy01";
     private $username = "groopy_app";
     private $password = "xSHjGgpDDwtpM9T7";
     public $conn;
  
-    // get the database connection
     public function getConnection(){
  
         $this->conn = null;
