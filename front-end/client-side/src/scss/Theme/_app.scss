@@ -1,0 +1,37 @@
+.app-Wrapper {
+    background: $gen-background;
+    height: calc(100% - 62px);
+    overflow-y: scroll;
+}
+
+/*========================
+=
+=    GROOPYS PAGE
+=
+========================*/
+
+// Sub Menu
+//
+
+.sub-menu {
+    display: flex;
+    border: $sub-menu-border;
+    transform: translateY(-100%);
+    transition: transform 0.25s ease-out 0.3s;
+
+    .item {
+        width: calc(50% - 2px);
+        padding: 7px 10px;
+        font-size: 0.8em;
+
+        &:last-child {
+            border-left: $sub-menu-border;
+            text-align: right;
+        }
+
+    }
+
+    &.show {
+        transform: translateY(0%);
+    }
+}

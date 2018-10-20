@@ -1,0 +1,76 @@
+{  
+    "day":"tomorrow",
+    "data":[  
+       {  
+          "name":"McDonalds Restaurant",
+          "cuisineType":[  
+             "Fast-Food"
+          ],
+          "discount":30,
+          "discountType":"percent",
+          "timeStart":"12:30pm",
+          "timeEnd":"1:30pm",
+          "peopleTotal":10,
+          "peopleJoining":7,
+          "peopleMin":7,
+          "needHelp":false
+       },
+       {  
+          "name":"Sample Restaurant",
+          "cuisineType":[  
+             "Chinese"
+          ],
+          "discount":18,
+          "discountType":"percent",
+          "timeStart":"12:30pm",
+          "timeEnd":"1:30pm",
+          "peopleTotal":9,
+          "peopleJoining":4,
+          "peopleMin":5,
+          "needHelp":false
+       },
+       {  
+          "name":"Sample Restaurant",
+          "cuisineType":[  
+             "Chinese"
+          ],
+          "discount":18,
+          "discountType":"percent",
+          "timeStart":"12:30pm",
+          "timeEnd":"1:30pm",
+          "peopleTotal":9,
+          "peopleJoining":4,
+          "peopleMin":5,
+          "needHelp":false
+       },
+       {  
+          "name":"Sample Restaurant",
+          "cuisineType":[  
+             "Chinese"
+          ],
+          "discount":18,
+          "discountType":"percent",
+          "timeStart":"12:30pm",
+          "timeEnd":"1:30pm",
+          "peopleTotal":9,
+          "peopleJoining":4,
+          "peopleMin":5,
+          "needHelp":false
+       },
+       {  
+          "name":"Sample Restaurant",
+          "cuisineType":[  
+             "Chinese"
+          ],
+          "discount":18,
+          "discountType":"percent",
+          "timeStart":"12:30pm",
+          "timeEnd":"1:30pm",
+          "peopleTotal":9,
+          "peopleJoining":4,
+          "peopleMin":5,
+          "needHelp":false
+       }
+    ]
+ }
+ 

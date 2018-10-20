@@ -1,0 +1,62 @@
+{  
+    "day":"today",
+    "data":[  
+       {  
+          "name":"Elcharo Mexican Restaurant",
+          "cuisineType":[  
+             "Mexican"
+          ],
+          "discount":15,
+          "discountType":"percent",
+          "timeStart":"12:30pm",
+          "timeEnd":"1:30pm",
+          "peopleTotal":8,
+          "peopleJoining":6,
+          "peopleMin":5,
+          "needHelp":false
+       },
+       {  
+          "name":"Sample Restaurant",
+          "cuisineType":[  
+             "Chinese"
+          ],
+          "discount":18,
+          "discountType":"percent",
+          "timeStart":"12:30pm",
+          "timeEnd":"1:30pm",
+          "peopleTotal":9,
+          "peopleJoining":4,
+          "peopleMin":5,
+          "needHelp":false
+       },
+       {  
+          "name":"Sample Restaurant",
+          "cuisineType":[  
+             "Western"
+          ],
+          "discount":17,
+          "discountType":"percent",
+          "timeStart":"1:30pm",
+          "timeEnd":"2:30pm",
+          "peopleTotal":6,
+          "peopleJoining":5,
+          "peopleMin":5,
+          "needHelp":false
+       },
+       {  
+          "name":"Sample Restaurant",
+          "cuisineType":[  
+             "Italian"
+          ],
+          "discount":17,
+          "discountType":"percent",
+          "timeStart":"1:30pm",
+          "timeEnd":"2:30pm",
+          "peopleTotal":6,
+          "peopleJoining":5,
+          "peopleMin":5,
+          "needHelp":false
+       }
+    ]
+ }
+ 

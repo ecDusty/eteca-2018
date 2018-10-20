@@ -1,57 +1,93 @@
 // Settings
 // ============================================================================
-@import "../bootstrap/functions";
 @import "../settings/theme-variables";
 @import "../settings/basic-reset";
-@import "../settings/bootstrap-variables";
 
-// // Primary variables and mixins
- @import "../bootstrap/variables";
- @import "../bootstrap/mixins";
+@import "outsourced";
+@import "menu";
+@import "app";
 
- @import "../bootstrap/reboot";
- @import "../bootstrap/type";
-// @import "../bootstrap/images";
-// @import "../bootstrap/code";
- @import "../bootstrap/grid";
-// @import "../bootstrap/tables";
-// @import "../bootstrap/forms";
-// @import "../bootstrap/buttons";
-// @import "../bootstrap/transitions";
-// @import "../bootstrap/dropdown";
 
-// @import "../bootstrap/button-group";
-// @import "../bootstrap/input-group";
-// @import "../bootstrap/custom-forms";
-// @import "../bootstrap/nav";
-// @import "../bootstrap/navbar";
-// @import "../bootstrap/card";
-// @import "../bootstrap/breadcrumb";
-// @import "../bootstrap/pagination";
-// @import "../bootstrap/badge";
-// @import "../bootstrap/jumbotron";
-// @import "../bootstrap/alert";
-// @import "../bootstrap/progress";
-// @import "../bootstrap/media";
-// @import "../bootstrap/list-group";
-// @import "../bootstrap/close";
-// @import "../bootstrap/modal";
-// @import "../bootstrap/tooltip";
-// @import "../bootstrap/popover";
-// @import "../bootstrap/carousel";
+.app-Header {
+    display: flex;
+    background-color:$activeT-c1;
+    padding: 10px;
 
- @import "../bootstrap/utilities/align";
-// @import "../bootstrap/utilities/background";
-// @import "../bootstrap/utilities/borders";
- @import "../bootstrap/utilities/clearfix";
- @import "../bootstrap/utilities/display";
-// @import "../bootstrap/utilities/embed";
-// @import "../bootstrap/utilities/flex";
-// @import "../bootstrap/utilities/float";
- @import "../bootstrap/utilities/position";
-// @import "../bootstrap/utilities/screenreaders";
- @import "../bootstrap/utilities/sizing";
-// @import "../bootstrap/utilities/spacing";
-// @import "../bootstrap/utilities/text";
-// @import "../bootstrap/utilities/visibility";
+    .location, .title, .profile {
+        flex-grow: 1;
+        align-self: center;
+    }
 
+    .location, .profile {
+        width: 80px;
+    }
+
+    .location {
+        display: flex; 
+        padding: 2px 5px;
+        position: relative;
+
+        img, p, i {
+            display: none;
+            color: $header-color;
+            align-content: center;
+        }
+
+        i {
+            margin-right: 5px;
+            font-size:1.2em;
+            line-height: 0.65;
+        }
+
+        p {
+            font-size: 0.6em;
+            line-height: 1.8;
+            transform: translateY(-50%);
+            top: 50%;
+            position: absolute;
+            padding-left: 28px;
+        }
+
+        .show {
+            display: block;
+        }
+    }
+
+    .title {
+        text-align: center;
+
+        h1 {
+            line-height: 1;
+            margin-bottom: 10px;
+            color: $header-color;
+        }
+    }
+
+    .profile {
+        border-radius: 50%; 
+        padding: 2px 5px;
+        text-align: right;
+
+        .profile-wrap, svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        .profile-wrap {
+            border-radius: 50%;
+            margin-left: auto;
+        }
+
+        svg {
+            color: $header-color;
+        }
+
+        img {
+            display:none;
+
+            &.show {
+            display: block;
+            }
+        }
+    }
+}
