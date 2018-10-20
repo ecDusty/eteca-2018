@@ -20,27 +20,16 @@
 </head>
 
 <body>
-<!--  -->
-
-    <div class="container-fluid">
-    </div>
 
 <!-- KNOCKOUT HTML Templates -->
 
     <!-- Sample template -->
-    <script type="text/html" id="Menu">
-        <li class="menuItem" data-bind="css: { active: item.active() == true }, click: $root.menuRemoveActive ">
-            <img data-bind="attr: { src: item.icon, alt: item.alt, title: item.name }">
-            <p class="title" data-bind="text: item.name"></p>
-        </li>
-    </script>
 
 <!-- 
 **** Defferred CSS Styles ****
 **** Google's Async styles loader ****
 -->
 	<noscript id="deferred-styles">
-		<link href="css/style.css" rel="stylesheet">
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </noscript>
     

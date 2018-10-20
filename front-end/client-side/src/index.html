@@ -22,16 +22,23 @@
 <body>
 <!--  -->
 
-    <div class="container-fluid">
+    <div class="app-Wrapper">
+        <ul id="main-Nav" data-bind="template: { name: 'Menu' foreach: mainMenuItems, as: item }">
+        </ul>
     </div>
 
 <!-- KNOCKOUT HTML Templates -->
 
     <!-- Sample template -->
+    <script type="text/html" id="">
+        
+    </script>
+
+    <!-- MENU template -->
     <script type="text/html" id="Menu">
-        <li class="menuItem" data-bind="css: { active: item.active() == true }, click: $root.menuRemoveActive ">
-            <img data-bind="attr: { src: item.icon, alt: item.alt, title: item.name }">
-            <p class="title" data-bind="text: item.name"></p>
+        <li class="menu-Item" data-bind="css: { active: item.active() == true }">
+            <img data-bind=" attr: { src: item.url, alt: item.alt}" src="" alt="">
+            <p data-bind="text: item.name"></p>
         </li>
     </script>
 
@@ -40,7 +47,6 @@
 **** Google's Async styles loader ****
 -->
 	<noscript id="deferred-styles">
-		<link href="css/style.css" rel="stylesheet">
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </noscript>
     

@@ -17,6 +17,7 @@ When you have gulp up & running and are testing/ distributing your site, you'll 
 
 Compile the easy to read source code to ready to use HTML, CSS, and JS files.
 
+
 ### Getting started up with Gulp.
 
 As Erin develops on a Windows machine, these instructions are for windows users using Git's Bach command line, but for the most part I believe they should work on Mac's as well, as PowerShell isn't used.
@@ -66,6 +67,7 @@ As Erin develops on a Windows machine, these instructions are for windows users 
     ```sh
     $ gulp export
     ```
+
 
 ### Credit
 
