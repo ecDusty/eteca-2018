@@ -110,8 +110,8 @@
                 <h3 class="title" data-bind="text: gItem.name"></h3>
                 <p class="cuisine" data-bind="text: gItem.cuisineType"></p>
                 <p class="city" data-bind=""><i class="fas fa-map-marker-alt"></i><span data-bind="text: gItem.location.city"></span></p>
-                <p data-bind="text: gItem.offer"></p>
-                <p data-bind="text: gItem.displayTime"></p>
+                <p class="time" data-bind="text: gItem.displayTime"></p>
+                <p class="offer" data-bind="text: gItem.offer"></p>
                 <div class="attendies" data-bind="foreach: gItem.peopleArray">
                     <i class="fas fa-user-alt" data-bind="attr: { set: filled } "></i>
                 </div>

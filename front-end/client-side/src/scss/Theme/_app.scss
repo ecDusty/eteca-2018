@@ -1,6 +1,6 @@
 .app-Wrapper {
     background: $gen-background;
-    height: calc(100% - 62px);
+    height: calc(100% - 128px);
     overflow-y: scroll;
     overflow-x: hidden;
     position: relative;
@@ -109,7 +109,7 @@
 }
 
 .groopy-item {
-    margin: 25px 20px 5px;
+    margin: 0 10px 15px;
     border: $groopy-border;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -118,9 +118,14 @@
     font-size: 0.8em;
     display: flex;
 
+    &:first-child {
+        margin-top: 15px;
+    }
+
     .img-wrap {
         overflow:hidden;
-        width: 100px;
+        width: 90px;
+        height: 80px;
         float: right;
 
         img {
@@ -134,39 +139,26 @@
         position: relative;
         width: 100%;
 
-        .top {
-            display: flex;
-            margin-bottom: 15px;
-
-
-            .left, .right {
-                flex-grow:1;
-            }
-
-            .right {
-                display: flex;
-                text-align:right;
-                justify-content: flex-end;
-
-                p {
-                    margin-right: 5px;
-                }
-            }
-
+        .title {
+            font-size: 1.8em;
         }
 
-        .details {
-            display: flex;
-            margin-bottom: 8px;
+        .cuisine {
+            font-size:0.9em;
+            margin-bottom: 10px;
+        }
 
-            p {
-                justify-content: space-between;
-                flex-grow: 1;
-
-                &:last-child {
-                    text-align: right;
-                }
+        .city {
+            font-size: 1.2em;
+            margin-bottom: 4px;
+            i {
+                margin-right: 5px;
             }
+        }
+
+        .time {
+            font-size: 1.2em;
+            margin-bottom: 10px;
         }
 
         .attendies {
@@ -212,18 +204,4 @@
         }
     }
 
-}
-.attendies {
-    text-align: right;
-}
-
-.attendies i {
-    margin-right: -9px;
-    opacity:0.4;
-    font-size: 1.15em
-}
-
-.attendies i[set="true"] {
-    opacity: 0.8;
-    font-size: 1.1em;
 }
