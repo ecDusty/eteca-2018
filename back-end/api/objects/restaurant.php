@@ -6,7 +6,10 @@ class Restaurant{
  
     public $id;
     public $name;
-    public $address;
+    public $address1;
+    public $address2;
+    public $city;
+    public $country;
     public $cuisine;
     
     public function __construct($db){
@@ -15,7 +18,7 @@ class Restaurant{
 
     function get() {
         $query = "SELECT
-                    r.id, r.name, r.address, r.cuisine
+                    r.id, r.name, r.address1, r.address2, r.city, r.country, r.cuisine
                 FROM
                     " . $this->table_name . " p
                 WHERE
@@ -32,7 +35,10 @@ class Restaurant{
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->name    = $row['name'];
-        $this->address = $row['address'];
+        $this->address1 = $row['address1'];
+        $this->address2 = $row['address2'];
+        $this->city = $row['city'];
+        $this->country = $row['country'];
         $this->cuisine = $row['cuisine'];
     }
 }

@@ -23,6 +23,12 @@ if($groopy->name!=null) {
     $groopy_arr = array(
         "id" =>  $groopy->id,
         "name" => $groopy->name,
+        "location" => array(
+            "address1" => $groopy->address1,
+            "address2" => $groopy->address2,
+            "city" => $groopy->city,
+            "country" => $groopy->country,
+        ),
         "cuisineType" => $groopy->cuisine,
         "image" => $groopy->image,
         "offer" => $groopy->offer,
