@@ -1,14 +1,14 @@
 {
-  "name": "fyn",
-  "version": "2.0.1",
-  "description": "Neighborhood map web application.",
+  "name": "groopy",
+  "version": "0.0.1",
+  "description": "groopy social interaction application",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git:https://github.com/ecDusty/fyn.git"
+    "url": "git:https://github.com/ecDusty/eteca-2018.git"
   },
   "keywords": [],
   "author": "Erin Macalligan",
