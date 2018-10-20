@@ -14,9 +14,17 @@ $db = $database->getConnection();
 
 $groopy = new Groopy($db);
 
-// $groopy->id = isset($_GET['id']) ? $_GET['id'] : die();
+$r_id = isset($_GET['r_id']) ? $_GET['r_id'] : null;
+$rest = false;
 
-$stmt = $groopy->list();
+if ($r_id != null) {
+    $rest = true;
+    $groopy->r_id = $r_id;
+    $stmt = $groopy->listByRestaurant();
+} else {
+    $stmt = $groopy->list();
+}
+
 $num = $stmt->rowCount();
  
 if($num > 0) {
@@ -25,6 +33,42 @@ if($num > 0) {
     $grpy_arr['records'] = array();
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+        if ($rest) {
+            $grpy_item = array(
+                "id" =>  $row['id'],
+                "offer" => $row['offer'],
+                "timeStart" => date_format(date_create($row['time_start']), 'H:ia'),
+                "timeEnd" => date_format(date_create($row['time_end']), 'H:ia'),
+                "timeCutoff" => date_format(date_create($row['time_cutoff']), 'H:ia'),
+                "peopleTotal" => $row['max_pp'],
+                "peopleMin" => $row['min_pp'],
+                "peopleJoining" => $row['cur_pp']
+            );
+        } else {
+    
+            $grpy_item = array(
+                "id" =>  $row['id'],
+                "name" => $row['name'],
+                "location" => array(
+                    "address1" => $row['address1'],
+                    "address2" => $row['address2'],
+                    "city" => $row['city'],
+                    "country" => $row['country'],
+                ),
+                "cuisineType" => $row['cuisine'],
+                "image" => $row['image'],
+                "offer" => $row['offer'],
+                "timeStart" => date_format(date_create($row['time_start']), 'H:ia'),
+                "timeEnd" => date_format(date_create($row['time_end']), 'H:ia'),
+                "timeCutoff" => date_format(date_create($row['time_cutoff']), 'H:ia'),
+                "peopleTotal" => $row['max_pp'],
+                "peopleMin" => $row['min_pp'],
+                "peopleJoining" => $row['cur_pp'],
+                "needHelp" => $row['cfh_count'] > 0 ? true : false
+            );
+
+        }
 
         $grpy_item = array(
             "id" =>  $row['id'],
