@@ -44,6 +44,8 @@
     position: absolute;
     width: 100%;
     transition: all 0.4s ease-out; 
+    display: flex;
+    flex-direction: column;
 
     &.today {
         transform:translateX(-100%);
@@ -56,4 +58,121 @@
     &.active {
         transform: translateX(0);
     }
+}
+
+.groopy-item {
+    margin: 25px 20px 5px;
+    border: $groopy-border;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+    font-size: 0.8em;
+
+    .img-wrap {
+        width: 100%;
+        overflow:hidden;
+        height: 200px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .groopy-inner {
+        padding: 15px;
+        position: relative;
+
+        .top {
+            display: flex;
+            margin-bottom: 15px;
+
+
+            .left, .right {
+                flex-grow:1;
+            }
+
+            .right {
+                display: flex;
+                text-align:right;
+                justify-content: flex-end;
+
+                p {
+                    margin-right: 5px;
+                }
+            }
+
+        }
+
+        .details {
+            display: flex;
+            margin-bottom: 8px;
+
+            p {
+                justify-content: space-between;
+                flex-grow: 1;
+
+                &:last-child {
+                    text-align: right;
+                }
+            }
+        }
+
+        .attendies {
+            text-align: right;
+            margin-top: 6px;
+            padding-right: 9px;
+
+            i {
+                margin-right: -9px;
+                opacity:0.4;
+                font-size: 1.15em;
+
+                &[set="true"] {
+                    opacity: 0.8;
+                    font-size: 1.1em;
+                }
+
+            }
+        }
+
+        .help {
+            display:none;
+            background-color: $help-bg;
+            position: absolute;
+            bottom: -1px;
+            left: -1px;
+            padding: 7px;
+            border: $help-border;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            &.show {
+                display: flex;
+            }
+
+            i {
+                margin-top: 1px;
+                margin-right: 8px;
+                font-size: 1.2em;
+
+            }
+        }
+    }
+
+}
+.attendies {
+    text-align: right;
+}
+
+.attendies i {
+    margin-right: -9px;
+    opacity:0.4;
+    font-size: 1.15em
+}
+
+.attendies i[set="true"] {
+    opacity: 0.8;
+    font-size: 1.1em;
 }

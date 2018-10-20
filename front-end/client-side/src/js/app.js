@@ -146,6 +146,15 @@ function ClientgroopyViewModel() {
         (response.day == 'today') ? day = 'activeGroopyToday' : day = 'activeGroopyTomorrow'
         foo[day]([]);
         for (const gItem of response.data) {
+            gItem.peopleArray = ko.observableArray();
+            for (var i = 0; i < gItem.peopleTotal; i++) {
+                var filled = (i <= gItem.peopleJoining);
+                gItem.peopleArray.push({filled})
+            }
+            gItem.displayTime = ko.computed(function() {
+                return `${gItem.timeStart} - ${gItem.timeEnd}`;        
+            });
+            gItem.help = ko.observable(gItem.needHelp);
             foo[day].push(gItem);
         }
     }

@@ -72,9 +72,32 @@
 
     <script type="text/html" id="GroopyItem">
         <li class="groopy-item" data-bind="">
-            <h3 class="title" data-bind="text: gItem.name"></h3>
-            <p class="description" data-bind=""></p>
-            <div class="attendies" ></div>
+            <div class="img-wrap">
+                <img src="gItem.imageUrl" data-bind="attr: { src: gItem.image, alt: gItem.name }">
+            </div>
+            <div class="groopy-inner">
+                <div class="top">
+                    <div class="left">
+                        <h3 class="title" data-bind="text: gItem.name"></h3>
+                        <p class="cuisine" data-bind="text: gItem.cuisineType"></p>
+                    </div>
+                    <div class="right">
+                        <p data-bind="text: gItem.location.city"></p>
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                </div>
+                <div class="details">
+                    <p data-bind="text: gItem.offer"></p>
+                    <p data-bind="text: gItem.displayTime"></p>
+                </div>
+                <div class="attendies" data-bind="foreach: gItem.peopleArray">
+                    <i class="fas fa-user-alt" data-bind="attr: { set: filled } "></i>
+                </div>
+                <div class="help" data-bind="css: { show: gItem.help() == true} ">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Somebody needs help!</p>
+                </div>
+            </div>
         </li>
     </script>
 
