@@ -1,17 +1,14 @@
 <?php
 class Restaurant{
  
-    // database connection and table name
     private $conn;
     private $table_name = "grpy_restaurants";
  
-    // object properties
     public $id;
     public $name;
     public $address;
     public $cuisine;
     
-    // constructor with $db as database connection
     public function __construct($db){
         $this->conn = $db;
     }
@@ -34,7 +31,7 @@ class Restaurant{
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->name = $row['name'];
+        $this->name    = $row['name'];
         $this->address = $row['address'];
         $this->cuisine = $row['cuisine'];
     }
