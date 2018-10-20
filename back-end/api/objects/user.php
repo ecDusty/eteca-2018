@@ -12,6 +12,16 @@ class User{
         $this->conn = $db;
     }
 
+    function getGroopys() {
+        $query = "SELECT j.g_id FROM grpy_joins j WHERE j.u_id = ?";
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+        
+        return $stmt;
+    }
+
     function get() {
         $query = "SELECT
                     p.id, p.name, p.email

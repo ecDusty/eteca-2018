@@ -33,7 +33,7 @@ class Groopy{
                         ON g.r_id = r.id
                 LEFT JOIN
                     grpy_joins j
-                        ON j.g_id = r.id
+                        ON j.g_id = g.id
                 WHERE
                     g.id = ?
                 LIMIT
@@ -58,7 +58,7 @@ class Groopy{
                         ON g.r_id = r.id
                 LEFT JOIN
                     grpy_joins j
-                        ON j.g_id = r.id";
+                        ON j.g_id = g.id";
 
         $stmt = $this->conn->prepare( $query );
 
