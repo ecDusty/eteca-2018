@@ -116,11 +116,12 @@
     border-bottom-right-radius: 15px;
     overflow: hidden;
     font-size: 0.8em;
+    display: flex;
 
     .img-wrap {
-        width: 100%;
         overflow:hidden;
-        height: 220px;
+        width: 100px;
+        float: right;
 
         img {
             width: 100%;
@@ -131,6 +132,7 @@
     .groopy-inner {
         padding: 15px;
         position: relative;
+        width: 100%;
 
         .top {
             display: flex;

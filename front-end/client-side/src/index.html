@@ -70,11 +70,8 @@
         <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
     </script>
 
-    <script type="text/html" id="GroopyItem">
+    <script type="text/html" id="GroopyItem-old">
         <li class="groopy-item" data-bind="">
-            <div class="img-wrap">
-                <img src="gItem.imageUrl" data-bind="attr: { src: gItem.image, alt: gItem.name }">
-            </div>
             <div class="groopy-inner">
                 <div class="top">
                     <div class="left">
@@ -96,6 +93,31 @@
                 <div class="help" data-bind="css: { show: gItem.help() == true} ">
                     <i class="fas fa-exclamation-circle"></i>
                     <p>Somebody needs help!</p>
+                </div>
+            </div>
+            <div class="img-wrap">
+                <img src="gItem.imageUrl" data-bind="attr: { src: gItem.image, alt: gItem.name }">
+            </div>
+        </li>
+    </script>
+
+    <script type="text/html" id="GroopyItem">
+        <li class="groopy-item" data-bind="">
+            <div class="groopy-inner">    
+                <div class="img-wrap">
+                    <img src="gItem.imageUrl" data-bind="attr: { src: gItem.image, alt: gItem.name }">
+                </div>
+                <h3 class="title" data-bind="text: gItem.name"></h3>
+                <p class="cuisine" data-bind="text: gItem.cuisineType"></p>
+                <p class="city" data-bind=""><i class="fas fa-map-marker-alt"></i><span data-bind="text: gItem.location.city"></span></p>
+                <p data-bind="text: gItem.offer"></p>
+                <p data-bind="text: gItem.displayTime"></p>
+                <div class="attendies" data-bind="foreach: gItem.peopleArray">
+                    <i class="fas fa-user-alt" data-bind="attr: { set: filled } "></i>
+                </div>
+                <div class="help" data-bind="css: { show: gItem.help() == true} ">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Help!</p>
                 </div>
             </div>
         </li>
