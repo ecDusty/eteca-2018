@@ -1,16 +1,12 @@
-# fyn
-Neighborhood map web application
-
-Welcome to _ecDusty's_ FYN web app, an open source project.
-
-The purpose
+# GROOPIES CLIENT SIDE APP
+Groopie social event web application
 
 
 ## Folder Layout
 
 As you can see there is just the 1 folder within this repository:
 
-  * _src_: Contains the source code of your website. Basically the easy to read and edit version of the site.
+  * _src_: Contains the source code the your web app. Basically the easy to read and edit version of the app.
 
 When you have gulp up & running and are testing/ distributing your site, you'll see 2 more folders being created during this process:
   * _test_: This is the folder which will hold the code that is still under testing.
@@ -19,15 +15,11 @@ When you have gulp up & running and are testing/ distributing your site, you'll 
 
 ## Creating Distribution Ready Code From Your Source Code
 
-Once you've tweeked your source code to your liking, its  time to minify your HTML, CSS and JS. Also lets not forgot about optimizing your images as well! Don't just minify your source code files! This is very important to leave your source code files in form that is easily readable and editable, should they require tweeking in the future.
-
-The best way to produce your distribution ready site is to use a tool like gulp or grunt which automates this process. The amount of time saved compared to the amount time needed to learn gulp or grunt is exponecially huge!
-
-Pick which ever tool you find works best for you, but for this toolkit _Gulp_ is used.
+Compile the easy to read source code to ready to use HTML, CSS, and JS files.
 
 ### Getting started up with Gulp.
 
-As I develop on a Windows machine, these instructions are for windows users using Git's Bach command line, but for the most part I believe they should work on Mac's as well, as PowerShell isn't used.
+As Erin develops on a Windows machine, these instructions are for windows users using Git's Bach command line, but for the most part I believe they should work on Mac's as well, as PowerShell isn't used.
 
 1. Install npm on your machine
   * The simplest way of doing this is installing [Node JS][1], found at the provided link.
