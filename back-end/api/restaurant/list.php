@@ -31,7 +31,8 @@ if ($num > 0) {
             "address2" => $address2,
             "city" => $city,
             "country" => $country,
-            "cuisine" => $cuisine
+            "cuisine" => $cuisine,
+            "image" => $image
         );
 
         array_push($rest_arr['records'], $rest_item);

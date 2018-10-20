@@ -27,7 +27,9 @@ if($restaurant->name!=null) {
         "address2" => $restaurant->address2,
         "city" => $restaurant->city,
         "country" => $restaurant->country,
-        "cuisine" => $restaurant->cuisine
+        "cuisine" => $restaurant->cuisine,
+        "image" => $restaurant->image,
+        "code" => $restaurant->code
     );
  
     http_response_code(200);
