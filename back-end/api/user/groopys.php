@@ -25,7 +25,7 @@ if ($num > 0) {
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-        array_push($grpy_arr['records'], $row['id']);
+        array_push($grpy_arr['records'], $row['g_id']);
     }
  
     http_response_code(200);
