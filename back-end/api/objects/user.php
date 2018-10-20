@@ -103,4 +103,25 @@ class User{
             return -1;
         }
     }
+
+    function checkin($code) {
+
+        // shortcut check-in for demo purposes
+        // normally this should go like:
+        // scan code -> identify restaurant -> identify valid groopy hosted here -> has user joined this groopy
+        $query = "UPDATE
+                    grpy_joins j
+                SET 
+                    status = 'checked'
+                WHERE
+                    u_id = 1
+                    AND 
+                    g_id = 1";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":code", $code);
+        $stmt->execute();
+        return $stmt;
+                    
+    }
 }
