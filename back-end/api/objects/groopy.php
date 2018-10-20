@@ -61,7 +61,6 @@ class Groopy{
                         ON j.g_id = g.id";
 
         $stmt = $this->conn->prepare( $query );
-
         $stmt->execute();
 
         return $stmt;
@@ -71,7 +70,7 @@ class Groopy{
         $query = "SELECT
                     g.id, g.time_start, g.time_end, g.time_cutoff, g.max_pp, g.min_pp, g.offer
                 FROM
-                    " . $this->table_name . "
+                    " . $this->table_name . " g
                 WHERE
                     g.r_id = ?";
         
