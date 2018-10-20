@@ -6,8 +6,10 @@
 // KNOCKOUT CODING SECTION
 //
 
+
 //Menu Items
 //
+
 
 function etecaViewModel() {
     const self = this;
