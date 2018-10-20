@@ -24,6 +24,7 @@ if($groopy->name!=null) {
         "id" =>  $groopy->id,
         "name" => $groopy->name,
         "cuisineType" => $groopy->cuisine,
+        "image" => $groopy->image,
         "offer" => $groopy->offer,
         "timeStart" => date_format(date_create($groopy->time_start), 'H:ia'),
         "timeEnd" => date_format(date_create($groopy->time_end), 'H:ia'),

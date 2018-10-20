@@ -8,19 +8,20 @@ class Groopy{
     public $r_id; // restaurant id
     public $name; // restaurant name
     public $cuisine; // cuisine type
+    public $image;
     public $time_start;
     public $time_end;
     public $max_pp;
     public $min_pp;
     public $offer;
-=
+
     public function __construct($db){
         $this->conn = $db;
     }
 
     function get() {
         $query = "SELECT
-                    count(j.id) as cur_pp, count(cfh) as chf_count, r.name, r.address, r.cuisine, g.id, g.r_id, g.time_start, g.time_end, g.time_cutoff, g.max_pp, g.min_pp, g.offer
+                    count(j.id) as cur_pp, count(cfh) as chf_count, r.name, r.address, r.cuisine, g.id, g.r_id, g.image, g.time_start, g.time_end, g.time_cutoff, g.max_pp, g.min_pp, g.offer
                 FROM
                     " . $this->table_name . " p
                 LEFT JOIN
@@ -49,6 +50,7 @@ class Groopy{
         $this->id           = $row['id'];
         $this->name         = $row['name'];
         $this->cuisine      = $row['cuisine'];
+        $this->image        = $row['image'];
         $this->time_start   = $row['time_start'];
         $this->time_end     = $row['time_end'];
         $this->time_cutoff  = $row['time_cutoff'];
