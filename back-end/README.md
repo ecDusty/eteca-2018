@@ -2,7 +2,7 @@
 
 ## API Documentation
 
-site root: http://23.98.37.11/api/
+site root: http://23.98.37.11/api
 
 ### End points
 
