@@ -158,8 +158,8 @@ function ClientgroopyViewModel() {
         }).then(function() {
             foo.subMenuShow(true);
             foo.activeGroopy('GroopyItem');
+            navigator.geolocation.getCurrentPosition(function(pos){ foo.curPosition(pos); });
         });
-        navigator.geolocation.getCurrentPosition(function(pos){ foo.curPosition(pos); });
     }
 
     // Call Start the application

@@ -63,7 +63,7 @@
         </div>
         <ul class="groopy-list today" data-bind="template: { name: activeGroopy, foreach: activeGroopyToday, as:'gItem'}, css: { active: activeSubMenu() == 'today' }" >
         </ul>
-        <ul class="groopy-list tomorrow" data-bind="css: { active: activeSubMenu() == 'tomorrow' }" ></ul>
+        <ul class="groopy-list tomorrow" data-bind="template: { name: activeGroopy, foreach: activeGroopyTomorrow, as:'gItem'}, css: { active: activeSubMenu() == 'tomorrow' }" ></ul>
     </script>
 
     <script type="text/html" id="loading" >
@@ -72,7 +72,7 @@
 
     <script type="text/html" id="GroopyItem">
         <li class="groopy-item" data-bind="">
-            <h3 class="title" data-bind="gItem.name"></h3>
+            <h3 class="title" data-bind="text: gItem.name"></h3>
             <p class="description" data-bind=""></p>
             <div class="attendies" ></div>
         </li>
