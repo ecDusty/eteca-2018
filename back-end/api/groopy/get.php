@@ -16,28 +16,32 @@ $groopy = new Groopy($db);
 
 $groopy->id = isset($_GET['id']) ? $_GET['id'] : die();
 
-$groopy->get();
+$stmt = $groopy->get();
+$num = $stmt->rowCount();
  
-if($groopy->name!=null) {
+if($num > 0) {
+
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $groopy_arr = array(
-        "id" =>  $groopy->id,
-        "name" => $groopy->name,
+        "id" =>  $row['id'],
+        "name" => $row['name'],
         "location" => array(
-            "address1" => $groopy->address1,
-            "address2" => $groopy->address2,
-            "city" => $groopy->city,
-            "country" => $groopy->country,
+            "address1" => $row['address1'],
+            "address2" => $row['address2'],
+            "city" => $row['city'],
+            "country" => $row['country'],
         ),
-        "cuisineType" => $groopy->cuisine,
-        "image" => $groopy->image,
-        "offer" => $groopy->offer,
-        "timeStart" => date_format(date_create($groopy->time_start), 'H:ia'),
-        "timeEnd" => date_format(date_create($groopy->time_end), 'H:ia'),
-        "peopleTotal" => $groopy->max_pp,
-        "peopleMin" => $groopy->min_pp,
-        "peopleJoining" => $groopy->cur_pp,
-        "needHelp" => $groopy->has_cfh
+        "cuisineType" => $row['cuisine'],
+        "image" => $row['image'],
+        "offer" => $row['offer'],
+        "timeStart" => date_format(date_create($row['time_start']), 'H:ia'),
+        "timeEnd" => date_format(date_create($row['time_end']), 'H:ia'),
+        "timeCutoff" => date_format(date_create($row['time_cutoff']), 'H:ia'),
+        "peopleTotal" => $row['max_pp'],
+        "peopleMin" => $row['min_pp'],
+        "peopleJoining" => $row['cur_pp'],
+        "needHelp" => $row['cfh_count'] > 0 ? true : false
     );
  
     http_response_code(200);

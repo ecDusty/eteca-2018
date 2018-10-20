@@ -20,7 +20,7 @@ class Restaurant{
         $query = "SELECT
                     r.id, r.name, r.address1, r.address2, r.city, r.country, r.cuisine
                 FROM
-                    " . $this->table_name . " p
+                    " . $this->table_name . " r
                 WHERE
                     r.id = ?
                 LIMIT
@@ -40,5 +40,17 @@ class Restaurant{
         $this->city = $row['city'];
         $this->country = $row['country'];
         $this->cuisine = $row['cuisine'];
+    }
+
+    function list() {
+        $query = "SELECT 
+                    *
+                FROM
+                    " . $this->table_name . " r";
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+
+        return $stmt;
     }
 }
