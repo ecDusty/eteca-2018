@@ -37,3 +37,6 @@ Retrieves groopy using ID
 
 * ```/groopy/list.php```
 List all groopys
+
+* ```/groopy/list.php?r_id={r_id}```
+List all groopys by restaurant ID
