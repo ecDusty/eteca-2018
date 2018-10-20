@@ -36,7 +36,7 @@ var browserSync = require('browser-sync').create();
 
 
 //Source
-var SCRIPTS_PATH = 'src/js/{*.js,**/*.js}',
+var SCRIPTS_PATH = 'src/js/*.js',
   HTML_PATH = 'src/*.html',
   IMG_PATH = 'src/images/*.{png,jpeg,jpg,gif,svg}',
   SCSS_PATH = 'src/scss/{*,**/*}.scss',
@@ -94,7 +94,13 @@ gulp.task('sass-dev', function () {
 =   Scripts  =
 =  for Dist  =
 =============*/
-gulp.task('scripts-dist',['lint-dist'], function () {
+gulp.task('library-dist', function () {
+  console.log(strt + 'LIBRARY SCRIPTS DIST' + end);
+
+  return gulp.src('src/js/library/*.js')
+    .pipe(gulp.dest(DIST_JS));
+});
+gulp.task('scripts-dist',['lint-dist','library-dist'], function () {
   console.log(strt + 'SCRIPTS for DIST' + end);
 
   return gulp.src(SCRIPTS_PATH)
@@ -107,7 +113,14 @@ gulp.task('scripts-dist',['lint-dist'], function () {
 =   Scripts  =
 =   for Dev  =
 =============*/
-gulp.task('scripts-dev',['lint-dev'], function () {
+gulp.task('library-dev', function () {
+  console.log(strt + 'LIBRARY SCRIPTS DEV' + end);
+
+  return gulp.src('src/js/library/*.js')
+    .pipe(gulp.dest(TEST_JS));
+});
+
+gulp.task('scripts-dev',['lint-dev','library-dev'], function () {
   console.log(strt + 'SCRIPTS DEV' + end);
 
   return gulp.src(SCRIPTS_PATH)
