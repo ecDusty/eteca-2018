@@ -51,7 +51,7 @@ if($num > 0) {
     }
  
     http_response_code(200);
-    echo json_encode($groopy_arr);
+    echo json_encode($grpy_arr);
 } else {
     http_response_code(404);
     echo json_encode(array("message" => "Groopy does not exist."));
