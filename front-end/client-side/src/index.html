@@ -102,7 +102,7 @@
     </script>
 
     <script  type="text/html" id="subMenu">
-        <div class="item today" data-bind="click: $root.subMenuClick, css: { active: $root.activeSubMenu() == mItem.icon }">
+        <div class="item " data-bind="click: $root.subMenuClick, css: { active: $root.activeSubMenu() == mItem.icon, today: mItem.icon == 'today', tomorrow: mItem.icon == 'tomorrow' }">
             <h4 data-bind="text: mItem.name"></h4>
         </div>
     </script>

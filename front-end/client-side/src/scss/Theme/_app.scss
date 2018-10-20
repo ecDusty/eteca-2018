@@ -2,7 +2,12 @@
     background: $gen-background;
     height: calc(100% - 62px);
     overflow-y: scroll;
+    overflow-x: hidden;
     position: relative;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
 }
 
 /*========================
@@ -16,18 +21,61 @@
 
 .sub-menu {
     display: flex;
-    border: $sub-menu-border;
+    border-top: $sub-menu-border;
     transform: translateY(-100%);
     transition: transform 0.25s ease-out 0.3s;
 
     .item {
-        width: calc(50% - 2px);
-        padding: 7px 10px;
+        width: calc(50% - 0.5px);
+        padding: 12px 15px;
         font-size: 0.8em;
+        position: relative;
+        background-color: $sub-menu-bg;
+        color: #fff;
 
         &:last-child {
             border-left: $sub-menu-border;
             text-align: right;
+        }
+
+        &.active {
+            background-color: $sub-menu-bg-active;
+        }
+
+        &.today {
+            padding-left: 30px;
+        
+            &::before {
+            content: '<';
+            font-family: arial, sans-serif;
+            position: absolute;
+            font-size: 1.3em;
+            transform: translateY(-50%) scaleY(1.5);
+            top: 50%;
+            left: 10px;
+            }
+
+            &.active::before {
+                content: '';
+            }
+        }
+
+        &.tomorrow {
+            padding-right: 30px;
+        
+            &::after {
+            content: '>';
+            font-family: arial, sans-serif;
+            position: absolute;
+            font-size: 1.3em;
+            transform: translateY(-50%) scaleY(1.5);
+            top: 50%;
+            right: 10px;
+            }
+
+            &.active::after {
+                content: '';
+            }
         }
 
     }
@@ -72,10 +120,11 @@
     .img-wrap {
         width: 100%;
         overflow:hidden;
-        height: 200px;
+        height: 220px;
 
         img {
             width: 100%;
+            min-height:100%;
         }
     }
 

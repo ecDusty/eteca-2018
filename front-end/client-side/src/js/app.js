@@ -83,8 +83,8 @@ function ClientgroopyViewModel() {
     foo.groopy = [{}]
 
     foo.subMenuItems = [
-        new foo.MenuItem('Today\'s groopys','today'),
-        new foo.MenuItem('Tomorrow\'s','tomorrow')
+        new foo.MenuItem('Today','today'),
+        new foo.MenuItem('Tomorrow','tomorrow')
     ];
 
     foo.subMenuShow = ko.observable(false);
@@ -123,12 +123,6 @@ function ClientgroopyViewModel() {
         if (!item.active()) {
             for (const mItem of foo.subMenuItems) { mItem.active(false); }
             item.active(true);
-
-            if (item.icon == 'today') {
-                console.log('TODAY running')
-            } else {
-                console.log('Tomorrow running')
-            }
             foo.activeSubMenu(item.icon);
         }
     }
