@@ -61,8 +61,9 @@
     <script type="text/html" id="groopys">
         <div class="sub-menu" data-bind="template: { name: 'subMenu', foreach: subMenuItems, as: 'mItem' }, css: { show: subMenuShow() == true }">
         </div>
-        <ul class="groopy-list today" data-bind="template: { name: activeGroopy, foreach: activeGroopyToday, as: 'gItem' }, css: { active: activeSubMenu() == 'today' }" ></ul>
-        <ul class="groopy-list tomorrow" data-bind="template: { name: activeSecGroopy, foreach: activeGroopyTomorrow, as: 'gItem' }, css: { active: activeSubMenu() == 'tomorrow' }" ></ul>
+        <ul class="groopy-list today" data-bind="template: { name: activeGroopy, foreach: activeGroopyToday, as:'gItem'}, css: { active: activeSubMenu() == 'today' }" >
+        </ul>
+        <ul class="groopy-list tomorrow" data-bind="css: { active: activeSubMenu() == 'tomorrow' }" ></ul>
     </script>
 
     <script type="text/html" id="loading" >

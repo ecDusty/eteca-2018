@@ -88,17 +88,16 @@ function ClientgroopyViewModel() {
     ];
 
     foo.subMenuShow = ko.observable(false);
-
     foo.activeGroopy = ko.observable('loading');
-    foo.activeSecGroopy = ko.observable('loading')
 
-    foo.activeGroopyToday = ko.observableArray([{}]);
+    foo.activeGroopyToday = ko.observableArray();
 
-    foo.activeGroopyTomorrow = ko.observableArray([{}]);
+    foo.activeGroopyTomorrow = ko.observableArray();
 
     //USER DATA
     //
     foo.profilePicSet = ko.observable(false);
+    foo.curPosition = ko.observable();
 
 //==================
 //
@@ -147,7 +146,7 @@ function ClientgroopyViewModel() {
         (response.day == 'today') ? day = 'activeGroopyToday' : day = 'activeGroopyTomorrow'
         foo[day]([]);
         for (const gItem of response.data) {
-            foo[day]().push(ko.observable(gItem));
+            foo[day].push(gItem);
         }
     }
 
@@ -159,8 +158,8 @@ function ClientgroopyViewModel() {
         }).then(function() {
             foo.subMenuShow(true);
             foo.activeGroopy('GroopyItem');
-            foo.activeSecGroopy('GroopyItem');
         });
+        navigator.geolocation.getCurrentPosition(function(pos){ foo.curPosition(pos); });
     }
 
     // Call Start the application
