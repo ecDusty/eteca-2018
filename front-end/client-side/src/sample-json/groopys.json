@@ -3,11 +3,15 @@
     "data":[  
        {  
           "name":"Elcharo Mexican Restaurant",
-          "cuisineType":[  
-             "Mexican"
-          ],
-          "discount":15,
-          "discountType":"percent",
+          "image":"images/tacos.jpg",
+          "location": {
+              "addressOne":"",
+              "addressTwo":"",
+              "city":"Cyberport",
+              "country":""
+          },
+          "cuisineType":"Mexican",
+          "offer":"Set meal $120 off a la carte",
           "timeStart":"12:30pm",
           "timeEnd":"1:30pm",
           "peopleTotal":8,
@@ -17,25 +21,33 @@
        },
        {  
           "name":"Sample Restaurant",
-          "cuisineType":[  
-             "Chinese"
-          ],
-          "discount":18,
-          "discountType":"percent",
+          "image":"images/chinese-food.jpg",
+          "location": {
+              "addressOne":"",
+              "addressTwo":"",
+              "city":"Pukfulam",
+              "country":""
+          },
+          "cuisineType":"Chinese",
+          "offer":"Set meal 17% off a la carte",
           "timeStart":"12:30pm",
           "timeEnd":"1:30pm",
           "peopleTotal":9,
           "peopleJoining":4,
           "peopleMin":5,
-          "needHelp":false
+          "needHelp":true
        },
        {  
           "name":"Sample Restaurant",
-          "cuisineType":[  
-             "Western"
-          ],
-          "discount":17,
-          "discountType":"percent",
+          "image":"images/western-food.jpg",
+          "location": {
+              "addressOne":"",
+              "addressTwo":"",
+              "city":"Cyberport",
+              "country":""
+          },
+          "cuisineType":"Western",
+          "offer":"Set meal $157 off a la carte",
           "timeStart":"1:30pm",
           "timeEnd":"2:30pm",
           "peopleTotal":6,
@@ -45,11 +57,15 @@
        },
        {  
           "name":"Sample Restaurant",
-          "cuisineType":[  
-             "Italian"
-          ],
-          "discount":17,
-          "discountType":"percent",
+          "image":"images/italy-food.jpg",
+          "location": {
+              "address1":"",
+              "address2":"",
+              "city":"Cyberport",
+              "country":""
+          },
+          "cuisineType":"Italian",
+          "offer":"Set meal 13% off a la carte",
           "timeStart":"1:30pm",
           "timeEnd":"2:30pm",
           "peopleTotal":6,

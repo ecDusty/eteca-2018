@@ -70,16 +70,61 @@
         <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
     </script>
 
+    <script type="text/html" id="GroopyItem-old">
+        <li class="groopy-item" data-bind="">
+            <div class="groopy-inner">
+                <div class="top">
+                    <div class="left">
+                        <h3 class="title" data-bind="text: gItem.name"></h3>
+                        <p class="cuisine" data-bind="text: gItem.cuisineType"></p>
+                    </div>
+                    <div class="right">
+                        <p data-bind="text: gItem.location.city"></p>
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                </div>
+                <div class="details">
+                    <p data-bind="text: gItem.offer"></p>
+                    <p data-bind="text: gItem.displayTime"></p>
+                </div>
+                <div class="attendies" data-bind="foreach: gItem.peopleArray">
+                    <i class="fas fa-user-alt" data-bind="attr: { set: filled } "></i>
+                </div>
+                <div class="help" data-bind="css: { show: gItem.help() == true} ">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Somebody needs help!</p>
+                </div>
+            </div>
+            <div class="img-wrap">
+                <img src="gItem.imageUrl" data-bind="attr: { src: gItem.image, alt: gItem.name }">
+            </div>
+        </li>
+    </script>
+
     <script type="text/html" id="GroopyItem">
         <li class="groopy-item" data-bind="">
-            <h3 class="title" data-bind="text: gItem.name"></h3>
-            <p class="description" data-bind=""></p>
-            <div class="attendies" ></div>
+            <div class="groopy-inner">    
+                <div class="img-wrap">
+                    <img src="gItem.imageUrl" data-bind="attr: { src: gItem.image, alt: gItem.name }">
+                </div>
+                <h3 class="title" data-bind="text: gItem.name"></h3>
+                <p class="cuisine" data-bind="text: gItem.cuisineType"></p>
+                <p class="city" data-bind=""><i class="fas fa-map-marker-alt"></i><span data-bind="text: gItem.location.city"></span></p>
+                <p class="time" data-bind="text: gItem.displayTime"></p>
+                <p class="offer" data-bind="text: gItem.offer"></p>
+                <div class="attendies" data-bind="foreach: gItem.peopleArray">
+                    <i class="fas fa-user-alt" data-bind="attr: { set: filled } "></i>
+                </div>
+                <div class="help" data-bind="css: { show: gItem.help() == true} ">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Help!</p>
+                </div>
+            </div>
         </li>
     </script>
 
     <script  type="text/html" id="subMenu">
-        <div class="item today" data-bind="click: $root.subMenuClick, css: { active: $root.activeSubMenu() == mItem.icon }">
+        <div class="item " data-bind="click: $root.subMenuClick, css: { active: $root.activeSubMenu() == mItem.icon, today: mItem.icon == 'today', tomorrow: mItem.icon == 'tomorrow' }">
             <h4 data-bind="text: mItem.name"></h4>
         </div>
     </script>

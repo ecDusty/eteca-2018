@@ -1,8 +1,13 @@
 .app-Wrapper {
     background: $gen-background;
-    height: calc(100% - 62px);
+    height: calc(100% - 128px);
     overflow-y: scroll;
+    overflow-x: hidden;
     position: relative;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
 }
 
 /*========================
@@ -16,18 +21,61 @@
 
 .sub-menu {
     display: flex;
-    border: $sub-menu-border;
+    border-top: $sub-menu-border;
     transform: translateY(-100%);
     transition: transform 0.25s ease-out 0.3s;
 
     .item {
-        width: calc(50% - 2px);
-        padding: 7px 10px;
+        width: calc(50% - 0.5px);
+        padding: 12px 15px;
         font-size: 0.8em;
+        position: relative;
+        background-color: $sub-menu-bg;
+        color: #fff;
 
         &:last-child {
             border-left: $sub-menu-border;
             text-align: right;
+        }
+
+        &.active {
+            background-color: $sub-menu-bg-active;
+        }
+
+        &.today {
+            padding-left: 30px;
+        
+            &::before {
+            content: '<';
+            font-family: arial, sans-serif;
+            position: absolute;
+            font-size: 1.3em;
+            transform: translateY(-50%) scaleY(1.5);
+            top: 50%;
+            left: 10px;
+            }
+
+            &.active::before {
+                content: '';
+            }
+        }
+
+        &.tomorrow {
+            padding-right: 30px;
+        
+            &::after {
+            content: '>';
+            font-family: arial, sans-serif;
+            position: absolute;
+            font-size: 1.3em;
+            transform: translateY(-50%) scaleY(1.5);
+            top: 50%;
+            right: 10px;
+            }
+
+            &.active::after {
+                content: '';
+            }
         }
 
     }
@@ -44,6 +92,8 @@
     position: absolute;
     width: 100%;
     transition: all 0.4s ease-out; 
+    display: flex;
+    flex-direction: column;
 
     &.today {
         transform:translateX(-100%);
@@ -56,4 +106,102 @@
     &.active {
         transform: translateX(0);
     }
+}
+
+.groopy-item {
+    margin: 0 10px 15px;
+    border: $groopy-border;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+    font-size: 0.8em;
+    display: flex;
+
+    &:first-child {
+        margin-top: 15px;
+    }
+
+    .img-wrap {
+        overflow:hidden;
+        width: 90px;
+        height: 80px;
+        float: right;
+
+        img {
+            width: 100%;
+            min-height:100%;
+        }
+    }
+
+    .groopy-inner {
+        padding: 15px;
+        position: relative;
+        width: 100%;
+
+        .title {
+            font-size: 1.8em;
+        }
+
+        .cuisine {
+            font-size:0.9em;
+            margin-bottom: 10px;
+        }
+
+        .city {
+            font-size: 1.2em;
+            margin-bottom: 4px;
+            i {
+                margin-right: 5px;
+            }
+        }
+
+        .time {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .attendies {
+            text-align: right;
+            margin-top: 6px;
+            padding-right: 9px;
+
+            i {
+                margin-right: -9px;
+                opacity:0.4;
+                font-size: 1.15em;
+
+                &[set="true"] {
+                    opacity: 0.8;
+                    font-size: 1.1em;
+                }
+
+            }
+        }
+
+        .help {
+            display:none;
+            background-color: $help-bg;
+            position: absolute;
+            bottom: -1px;
+            left: -1px;
+            padding: 7px;
+            border: $help-border;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            &.show {
+                display: flex;
+            }
+
+            i {
+                margin-top: 1px;
+                margin-right: 8px;
+                font-size: 1.2em;
+
+            }
+        }
+    }
+
 }
