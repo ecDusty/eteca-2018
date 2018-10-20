@@ -94,6 +94,13 @@ function ClientgroopyViewModel() {
 
     foo.activeGroopyTomorrow = ko.observableArray();
 
+    //Extra Pages Data
+    //
+    foo.activeExtraPage = ko.observable();
+
+    //Specific groopy page
+    foo.groopyPage = ko.observable()
+
     //USER DATA
     //
     foo.profilePicSet = ko.observable(false);
@@ -125,6 +132,15 @@ function ClientgroopyViewModel() {
             item.active(true);
             foo.activeSubMenu(item.icon);
         }
+    }
+
+
+    //Extra Pages functions
+    //
+    foo.showGroopy = function(item) {
+        foo.groopyPage(item);
+        foo.groopyPage.active = 'groopyPage';
+        foo.activeExtraPage(foo.groopyPage.active);
     }
 
     // Start the applciation

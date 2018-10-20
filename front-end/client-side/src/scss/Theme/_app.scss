@@ -1,12 +1,16 @@
-.app-Wrapper {
-    background: $gen-background;
-    height: calc(100% - 128px);
+.app {
     overflow-y: scroll;
     overflow-x: hidden;
     position: relative;
+    height: calc(100% - 128px);
+    background: $gen-background;
 
     &::-webkit-scrollbar {
         width: 0;
+    }
+
+    .app-Wrapper {
+        position: relative;
     }
 }
 
