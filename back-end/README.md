@@ -24,7 +24,7 @@ Retrieves list of groopys attended (or will be attended) by user with ID
 Checks in user after scanning QR code at groopy venue
 
 * ```/user/join.php?id={user_id}&g_id={groopy_id}```
-User (attempts to) join specific groopy
+User (attempts to) join specific groopy`
 
 
 #### Restaurant
