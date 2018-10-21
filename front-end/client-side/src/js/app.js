@@ -146,7 +146,7 @@ function ClientgroopyViewModel() {
 
     foo.accountID = 1;
 
-    foo.myGroopys = foo.activeGroopyToday
+    foo.myGroopys = ko.observableArray();
 
 //==================
 //
@@ -279,10 +279,10 @@ function ClientgroopyViewModel() {
     }
 
     foo.updateMyGroopys = function() {
-        foo.getMyGroopys(`http://23.98.37.11/user/groopys.php?id={${foo.accountID}}`)
+        foo.getMyGroopys(`http://23.98.37.11/user/groopys.php?id=${foo.accountID}`)
         .then(function(response) {
             for (const id of response.records) {
-                foo.getTodaysGroopys(`http://23.98.37.11/api//groopy/get.php?id={${id}}`)
+                foo.getTodaysGroopys(`http://23.98.37.11/api/groopy/get.php?id=${id}`)
                 .then(function(response){
                     foo.setupSingleGroopy(response, foo.myGroopys);
                 })
