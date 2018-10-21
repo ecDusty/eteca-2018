@@ -13,6 +13,26 @@
     background-color:$activeT-c1;
     padding: 10px;
 
+    .back {
+        display: none;
+        color: #fff;
+
+        span {
+
+            &::before {
+                content: '<';
+                font-family: arial, sans-serif;
+                font-size: 1.3em;
+                transform: scaleY(2);
+                margin:7px;
+            }
+        }
+
+        &.show {
+            display: block;
+        }
+    }
+
     .location, .title, .profile {
         flex-grow: 1;
         align-self: center;
@@ -48,9 +68,9 @@
             padding-left: 28px;
         }
 
-        .show {
-            display: block;
-        }
+        .show { display: block; }
+
+        .hide { display: none; }
     }
 
     .title {

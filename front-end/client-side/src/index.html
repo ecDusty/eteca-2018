@@ -23,8 +23,11 @@
 <!--  -->
     <div class="app-Header">
         <div class="location search" >
-            <i data-bind="css: { show: locationShow() == true }" class="fas fa-map-marked-alt"></i>
-            <p data-bind="text: preferredLocation, css: { show: locationShow() == true }"></p>
+            <i data-bind="css: { show: locationShow() == true, hide: activeExtra() == true }" class="fas fa-map-marked-alt"></i>
+            <p data-bind="text: preferredLocation, css: { show: locationShow() == true, hide: activeExtra() == true }"></p>
+            <div class="back" data-bind="click: backButton, css: { show: activeExtra() == true }">
+                <span><i>&#60;</i>Back</span>
+            </div>
         </div>
         <div class="title">
             <h1 data-bind="text: THENAME"></h1>
@@ -39,7 +42,7 @@
     <div class="app">
         <div class="app-Wrapper" data-bind="template: { name: activeView } ">
         </div>
-        <div class="extra-page" data-bind="template: { name: activeExtraPage }">
+        <div class="extra-page" data-bind="template: { name: activeExtraPage }, css: { active: activeExtra() == true }">
         </div>
     </div>
     <ul id="main-Nav" data-bind="template: { name: 'Menu', foreach: mainMenuItems, as: 'item' }">
@@ -59,11 +62,17 @@
         </li>
     </script>
 
+    <!-- WELCOME TEMPLATE -->
+    
+    <script type="text/html" id="welcomePage">
+        <div class="welcome-page" data-bind="css: { show: groopyPage.show() == true }">
+        </div>
+    </script>
     
 
     <!-- GROOPYS template -->
     <script type="text/html" id="groopys">
-        <div class="sub-menu" data-bind="template: { name: 'subMenu', foreach: subMenuItems, as: 'mItem' }, css: { show: subMenuShow() == true }">
+        <div class="sub-menu" data-bind="template: { name: 'subMenu', foreach: subMenuItems, as: 'mItem' }, css: { show: subMenuShow() == true, hide: activeExtra() == true }">
         </div>
         <ul class="groopy-list today" data-bind="template: { name: activeGroopy, foreach: activeGroopyToday, as:'gItem'}, css: { active: activeSubMenu() == 'today' }" >
         </ul>
@@ -74,15 +83,6 @@
         <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
     </script>
     
-    <!-- GROOPY SINGLE PAGE template -->
-    <script type="text/html" id="groopyPage">
-        <li class="menu-Item" data-bind="css: { active: item.active() == true }, click: $root.menuClick">
-            <div class="icon">
-                <div data-bind="html: item.icon"></div>
-            <p data-bind="text: item.name"></p>
-            </div>
-        </li>
-    </script>
 
     <script type="text/html" id="GroopyItem">
         <li class="groopy-item" data-bind="click: $root.showGroopy">
@@ -106,6 +106,27 @@
         </li>
     </script>
 
+    <!-- GROOPY SINGLE PAGE template -->
+    <script type="text/html" id="groopyPage">
+        <div class="groopy-page" data-bind="css: { show: groopyPage.show() == true }">
+            <div class="img-wrap">
+                <img data-bind="attr: { src: groopyPage.image, alt: groopyPage.name }">
+            </div>
+            <h3 class="title" data-bind="text: groopyPage.name"></h3>
+            <p class="cuisine" data-bind="text: groopyPage.cuisineType"></p>
+            <p class="city" data-bind=""><i class="fas fa-map-marker-alt"></i><span data-bind="text: groopyPage.location.address1"></span>,<span data-bind="text: groopyPage.location.city"></span></p>
+            <p class="time" data-bind="text: groopyPage.displayTime"></p>
+            <p class="offer" data-bind="text: groopyPage.offer"></p>
+            <div class="attendies" data-bind="foreach: groopyPage.peopleArray">
+                <i class="fas fa-user-alt" data-bind="attr: { set: filled } "></i>
+            </div>
+            <div class="help" data-bind="css: { show: groopyPage.needHelp() == true } ">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Help someone fill there empty seat!</p>
+            </div>
+        </div>
+    </script>
+
     <script  type="text/html" id="subMenu">
         <div class="item " data-bind="click: $root.subMenuClick, css: { active: $root.activeSubMenu() == mItem.icon, today: mItem.icon == 'today', tomorrow: mItem.icon == 'tomorrow' }">
             <h4 data-bind="text: mItem.name"></h4>
@@ -116,7 +137,7 @@
 
     <!-- MY GROUPYS template -->
     <script type="text/html" id="My groopys">
-        <ul class="groopy-list" data-bind="template: { name: 'GroopysItem', foreach: activeGroopyDay, as: 'item' }" ></ul>
+        <ul class="groopy-list" data-bind="" ></ul>
     </script>
 
     <!-- Check in template -->

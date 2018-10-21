@@ -19,6 +19,12 @@
         border-right: $menu-border;
         width: calc(33% - 2px);
 
+        &:first-child {
+            img {
+                width: 28px;
+            }
+        }
+
         &:last-child {
             border-right: none;
         }
@@ -27,6 +33,7 @@
             margin: 0 auto;
             font-size: 1.9em;
             line-height: 1;
+            color: $menu-color;
 
             i {
                 margin-top: 2px;
@@ -37,10 +44,6 @@
                 transform: translateY(2px);
                 path { fill: $menu-color; }
             }
-        }
-
-        .icon {
-            color: $menu-color;
         }
 
         p {
