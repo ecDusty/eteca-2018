@@ -284,7 +284,7 @@ function ClientgroopyViewModel() {
             navigator.geolocation.getCurrentPosition(function(pos){ foo.curPosition(pos); });
         });
 
-        foo.updateMyGroopys
+        //foo.updateMyGroopys();
     }
 
     // Call Start the application
