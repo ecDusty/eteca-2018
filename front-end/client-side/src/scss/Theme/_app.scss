@@ -316,4 +316,24 @@
 
         }
     }
+
+    .buttons {    
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 50px;
+        width: calc(100% - 60px);
+
+        button {
+            padding: 10px 25px;
+            font-size: 1em;
+            border: none;
+            background-color: $button-color;
+            color: white;
+
+            &:first-child {
+                border-right:1px solid white;
+            }
+        }
+    }
 }
