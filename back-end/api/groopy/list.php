@@ -70,27 +70,6 @@ if($num > 0) {
 
         }
 
-        $grpy_item = array(
-            "id" =>  $row['id'],
-            "name" => $row['name'],
-            "location" => array(
-                "address1" => $row['address1'],
-                "address2" => $row['address2'],
-                "city" => $row['city'],
-                "country" => $row['country'],
-            ),
-            "cuisineType" => $row['cuisine'],
-            "image" => $row['image'],
-            "offer" => $row['offer'],
-            "timeStart" => date_format(date_create($row['time_start']), 'H:ia'),
-            "timeEnd" => date_format(date_create($row['time_end']), 'H:ia'),
-            "timeCutoff" => date_format(date_create($row['time_cutoff']), 'H:ia'),
-            "peopleTotal" => $row['max_pp'],
-            "peopleMin" => $row['min_pp'],
-            "peopleJoining" => $row['cur_pp'],
-            "needHelp" => $row['cfh_count'] > 0 ? true : false
-        );
-
         array_push($grpy_arr['records'], $grpy_item);
     }
  
