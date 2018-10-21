@@ -11,8 +11,6 @@ class Modelgroopy {
     }
 
     postG(url,options) {
-        console.log(`Posting object:
-                    ${options}`);
         return fetch(url,{
             method: `post`,
             body: JSON.stringify(options)
@@ -20,8 +18,6 @@ class Modelgroopy {
     }
 
     putG(url,options) {
-        console.log(`Putting object:
-                    ${options}`);
         return fetch(url,{
             method: `put`,
             body: JSON.stringify(options)
@@ -29,8 +25,6 @@ class Modelgroopy {
     }
 
     deleteG(url,options) {
-        console.log(`Deleting object:
-                    ${options}`);
         return fetch(url,{
             method: `delete`,
             body: JSON.stringify(options)

@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Groopies | Get your social on!</title><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><link rel="icon" href="" type="image/png"><link rel="stylesheet" href="css/style.css"></head><body><div class="app-Header"><div class="location search"><i data-bind="css: { show: locationShow() == true, hide: activeExtra() == true }" class="fas fa-map-marked-alt"></i><p data-bind="text: preferredLocation, css: { show: locationShow() == true, hide: activeExtra() == true }"></p><div class="back" data-bind="click: backButton, css: { show: activeExtra() == true }"><span><i>&#60;</i>Back</span></div></div><div class="title"><h1 data-bind="text: THENAME"></h1></div><div class="profile"><div class="profile-wrap" data-bind=""><svg data-bind="css: { hide: profilePicSet() == true }" aria-hidden="true" data-prefix="fas" data-icon="user-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg-inline--fa fa-user-circle fa-w-16 fa-2x"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"></path></svg><img src="" alt="" data-bind="css: { show: profilePicSet() == true }"></div></div></div><div class="app"><div class="app-Wrapper" data-bind="template: { name: activeView } "></div><div class="extra-page" data-bind="template: { name: activeExtraPage }, css: { active: activeExtra() == true }"></div></div><ul id="main-Nav" data-bind="template: { name: 'Menu', foreach: mainMenuItems, as: 'item' }"></ul><script type="text/html" id="Menu"><li class="menu-Item" data-bind="css: { active: item.active() == true }, click: $root.menuClick">
+            <div class="icon">
+                <div data-bind="html: item.icon"></div>
+            <p data-bind="text: item.name"></p>
+            </div>
+        </li></script><script type="text/html" id="welcomePage"><div class="welcome-page" data-bind="css: { show: activeExtra == true }">
+        </div></script><script type="text/html" id="groopys"><div class="sub-menu" data-bind="template: { name: 'subMenu', foreach: subMenuItems, as: 'mItem' }, css: { show: subMenuShow() == true, hide: activeExtra() == true }">
+        </div>
+        <ul class="groopy-list today" data-bind="template: { name: activeGroopy, foreach: activeGroopyToday, as:'gItem'}, css: { active: activeSubMenu() == 'today' }" >
+        </ul>
+        <ul class="groopy-list tomorrow" data-bind="template: { name: activeGroopy, foreach: activeGroopyTomorrow, as:'gItem'}, css: { active: activeSubMenu() == 'tomorrow' }" ></ul></script><script type="text/html" id="loading"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></script><script type="text/html" id="GroopyItem"><li class="groopy-item" data-bind="click: $root.showGroopy">
+            <div class="groopy-inner">    
+                <div class="img-wrap">
+                    <img src="gItem.imageUrl" data-bind="attr: { src: gItem.image, alt: gItem.name }">
+                </div>
+                <h3 class="title" data-bind="text: gItem.name"></h3>
+                <p class="cuisine" data-bind="text: gItem.cuisineType"></p>
+                <p class="city" data-bind=""><i class="fas fa-map-marker-alt"></i><span data-bind="text: gItem.location.city"></span></p>
+                <p class="time" data-bind="text: gItem.displayTime"></p>
+                <p class="offer" data-bind="text: gItem.offer"></p>
+                <div class="attendies" data-bind="foreach: gItem.peopleArray">
+                    <i class="fas fa-user-alt" data-bind="attr: { set: filled } "></i>
+                </div>
+                <div class="help" data-bind="css: { show: gItem.help() == true} ">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Help!</p>
+                </div>
+            </div>
+        </li></script><script type="text/html" id="groopyPage"><div class="groopy-page" data-bind="css: { show: groopyPage.show() == true }">
+            <div class="img-wrap">
+                <img data-bind="attr: { src: groopyPage.image, alt: groopyPage.name }">
+            </div>
+            <h3 class="title" data-bind="text: groopyPage.name"></h3>
+            <p class="cuisine" data-bind="text: groopyPage.cuisineType"></p>
+            <p class="city" data-bind=""><i class="fas fa-map-marker-alt"></i><span data-bind="text: groopyPage.location.address1"></span>,<span data-bind="text: groopyPage.location.city"></span></p>
+            <p class="time" data-bind="text: groopyPage.displayTime"></p>
+            <p class="offer" data-bind="text: groopyPage.offer"></p>
+            <div class="attendies" data-bind="foreach: groopyPage.peopleArray">
+                <i class="fas fa-user-alt" data-bind="attr: { set: filled } "></i>
+            </div>
+            <div class="help" data-bind="css: { show: groopyPage.needHelp() == true } ">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Help someone fill there empty seat!</p>
+            </div>
+            <div class="buttons">
+                <button class="signup" data-bind="click: registerGroopy">Join groopy</button>
+                <button class="signup" data-bind="click: registerGroopy">Join groopy<br>with a friend</button>
+            </div>
+        </div></script><script type="text/html" id="subMenu"><div class="item " data-bind="click: $root.subMenuClick, css: { active: $root.activeSubMenu() == mItem.icon, today: mItem.icon == 'today', tomorrow: mItem.icon == 'tomorrow' }">
+            <h4 data-bind="text: mItem.name"></h4>
+        </div></script><script type="text/html" id="My groopys"><div class="mygroopys">
+            <h2 data-bind="css: { hide: activeExtra() == true }">My groopys</h2>
+            <ul class="groopy-list today" data-bind="template: { name: 'GroopyItem', foreach: myGroopys, as:'gItem' }, css: 'active'" >
+            </ul>
+        </div></script><script type="text/html" id="Check in"><div>QR CODE READER.... to be placed</div></script><noscript id="deferred-styles"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"></noscript><script>var loadDeferredStyles=function(){var e=document.getElementById("deferred-styles"),n=document.createElement("div");n.innerHTML=e.textContent,document.body.appendChild(n),e.parentElement.removeChild(e)},raf=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;raf?raf(function(){window.setTimeout(loadDeferredStyles,0)}):window.addEventListener("load",loadDeferredStyles)</script><script src="js/knockout-3.4.2.js"></script><script async defer="defer" src="js/app.js"></script></body></html>
