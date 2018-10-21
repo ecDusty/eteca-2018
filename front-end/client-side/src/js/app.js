@@ -279,7 +279,7 @@ function ClientgroopyViewModel() {
     }
 
     foo.updateMyGroopys = function() {
-        foo.getMyGroopys(`http://23.98.37.11/user/groopys.php?id=${foo.accountID}`)
+        foo.getMyGroopys(`http://23.98.37.11/api/user/groopys.php?id=${foo.accountID}`)
         .then(function(response) {
             for (const id of response.records) {
                 foo.getTodaysGroopys(`http://23.98.37.11/api/groopy/get.php?id=${id}`)
