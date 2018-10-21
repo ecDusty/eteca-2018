@@ -330,14 +330,24 @@
             border: none;
             background-color: $button-color;
             color: white;
+            transition: all 0.25s ease-out;
 
             &:first-child {
                 border-right:1px solid white;
             }
+
+            &.joined {
+                background-color: green;
+                font-size: 0px !important;
+
+                &::after {
+                    content: 'Joined';
+                    font-size: 16px;;
+                }
+            }
         }
     }
 }
-
 
 // MY GROOPYS
 //

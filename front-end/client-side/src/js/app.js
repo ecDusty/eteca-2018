@@ -117,7 +117,8 @@ function ClientgroopyViewModel() {
         peopleTotal: ko.observable(''),
         peopleJoining: ko.observable(''),
         peopleMin: ko.observable(''),
-        needHelp: ko.observable(false)
+        needHelp: ko.observable(false),
+        groopyPage: ko.observable(false)
     }
 
     foo.groopyPage.displayTime = ko.computed(function() {
@@ -295,6 +296,8 @@ function ClientgroopyViewModel() {
         foo.M.postG('http://23.98.37.11/api/user/join.php?', {
             id: foo.accountID,
             g_id: foo.groopyPage.id()
+        }).then(function(){
+            document.getElementsByClassName('signup')[0].classList.add('joined');
         })
     }
 
