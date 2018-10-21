@@ -129,8 +129,8 @@
                 <p>Help someone fill there empty seat!</p>
             </div>
             <div class="buttons">
-                <button class="signup">Join groopy</button>
-                <button class="signup">Join groopy<br>with a friend</button>
+                <button class="signup" data-bind="click: registerGroopy">Join groopy</button>
+                <button class="signup" data-bind="click: registerGroopy">Join groopy<br>with a friend</button>
             </div>
         </div>
     </script>
@@ -146,8 +146,8 @@
     <!-- MY GROUPYS template -->
     <script type="text/html" id="My groopys">
         <div class="mygroopys">
-            <h2>My groopys</h2>
-            <ul class="groopy-list today" data-bind="template: { name: activeGroopy, foreach: myGroopys, as:'gItem' }, css: 'active'" >
+            <h2 data-bind="css: { hide: activeExtra() == true }">My groopys</h2>
+            <ul class="groopy-list today" data-bind="template: { name: 'GroopyItem', foreach: myGroopys, as:'gItem' }, css: 'active'" >
             </ul>
         </div>
     </script>

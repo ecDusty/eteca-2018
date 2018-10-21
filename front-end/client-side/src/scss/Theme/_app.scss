@@ -347,5 +347,11 @@
         padding:15px;
         margin-bottom: 10px;
         font-size: 2em;
+        transition:margin-top 0.1s ease-out 0.4s;
+
+        &.hide{
+            margin-top: -78.6px;
+            transition: margin-top 0s;
+        }
     }
 }

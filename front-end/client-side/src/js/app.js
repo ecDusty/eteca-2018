@@ -106,6 +106,7 @@ function ClientgroopyViewModel() {
     //Specific groopy page
     foo.groopyPage = {
         show: ko.observable(false),
+        id: ko.observable(''),
         name: ko.observable(''),
         image: ko.observable(''),
         location: {
@@ -188,6 +189,7 @@ function ClientgroopyViewModel() {
     //Extra Pages functions
     //
     foo.showGroopy = function(item) {
+        foo.groopyPage.id(item.id)
         foo.groopyPage.name(item.name);
         foo.groopyPage.image(item.image);
         foo.groopyPage.location.address1(item.location.address1);
@@ -260,16 +262,45 @@ function ClientgroopyViewModel() {
         }
     }
 
+    foo.setupSingleGroopy = function(response,array) {
+        let gItem = response;
+        if(!gItem.image) {
+            gItem.image = 'images/groopy-logo.png';
+        }
+
+        gItem.peopleArray = ko.observableArray();
+        for (var i = 0; i < gItem.peopleTotal; i++) {
+            var filled = (i <= gItem.peopleJoining);
+            gItem.peopleArray.push({filled});
+        }
+        gItem.displayTime = ko.computed(function() {
+            return `${gItem.timeStart} - ${gItem.timeEnd}`;        
+        });
+        gItem.help = ko.observable(gItem.needHelp);
+        array.push(gItem);
+    }
+
     foo.getMyGroopys = function(url) {
         return foo.M.get(url)
     }
 
     foo.updateMyGroopys = function() {
-        foo.getMyGroopys(`/user/groopys.php?id={${foo.accountID}}`)
+        foo.getMyGroopys(`http://23.98.37.11/user/groopys.php?id={${foo.accountID}}`)
         .then(function(response) {
             for (const id of response.records) {
-                foo.get
+                foo.getTodaysGroopys(`http://23.98.37.11/api//groopy/get.php?id={${id}}`)
+                .then(function(response){
+                    foo.setupSingleGroopy(response, foo.myGroopys);
+                })
             }
+        })
+    }
+
+    foo.registerGroopy = function() {
+        foo.groopyPageReset
+        foo.M.postG('http://23.98.37.11/api/user/join.php?', {
+            id: foo.accountID,
+            g_id: foo.groopyPage.id()
         })
     }
 
@@ -284,7 +315,7 @@ function ClientgroopyViewModel() {
             navigator.geolocation.getCurrentPosition(function(pos){ foo.curPosition(pos); });
         });
 
-        //foo.updateMyGroopys();
+        foo.updateMyGroopys();
     }
 
     // Call Start the application
