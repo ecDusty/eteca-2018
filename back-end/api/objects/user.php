@@ -121,7 +121,41 @@ class User{
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":code", $code);
         $stmt->execute();
-        return $stmt;
-                    
+        return $stmt; 
+    }
+
+    function join($g_id) {
+        $query = "SELECT
+                    g.max_pp, (SELECT COUNT(*) FROM grpy_join j WHERE j.g_id = '" . $g_id . "' AND j.status LIKE 'confirmed') as cur_pp
+                FROM 
+                    grpy_groopys g
+                WHERE
+                    g.id = '" . $g_id . "'
+                LIMIT
+                    0,1";
+        
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+        $num = $stmt->rowCount();
+        if ($num > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (intval($row['max_pp']) > intval($row['cur_pp'])) {
+                $insQuery = "INSERT INTO
+                                grpy_joins (`u_id`, `g_id`, `status`)
+                            VALUES
+                                ('".$this->id."', '".$g_id."', 'confirmed')";
+                $stmt = $this->conn->prepare( $insQuery );
+                $stmt->execute();
+                return 1;
+            } else {
+                // full
+                return 0;
+            }
+            
+        } else {
+            // groopy not found
+            return -1;
+        }
+        
     }
 }
