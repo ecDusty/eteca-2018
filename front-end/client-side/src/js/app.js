@@ -15,7 +15,7 @@ class Modelgroopy {
                     ${options}`);
         return fetch(url,{
             method: `post`,
-            body: JSONstringify(options)
+            body: JSON.stringify(options)
         }).then(response => response.json())
     }
 
@@ -24,7 +24,7 @@ class Modelgroopy {
                     ${options}`);
         return fetch(url,{
             method: `put`,
-            body: JSONstringify(options)
+            body: JSON.stringify(options)
         }).then(response => response.json())
     }
 
@@ -33,7 +33,7 @@ class Modelgroopy {
                     ${options}`);
         return fetch(url,{
             method: `delete`,
-            body: JSONstringify(options)
+            body: JSON.stringify(options)
         }).then(response => response.json())
     }
 }
@@ -137,6 +137,21 @@ function ClientgroopyViewModel() {
     //
     foo.profilePicSet = ko.observable(false);
     foo.curPosition = ko.observable();
+    foo.accountAdd = ko.observable(false);
+
+    //Create sample account for ellie
+    foo.addAccount = function () {
+        foo.M.postG('http://23.98.37.11/api/user/create.php',
+        {
+            name: 'Ellie',
+            email: 'ecmgit@outlook.com',
+            password: 'asdf1234'
+        })
+    }
+
+    foo.accountID = 1;
+
+    foo.myGroopys = foo.activeGroopyToday
 
 //==================
 //
@@ -198,8 +213,8 @@ function ClientgroopyViewModel() {
 
     // Start the applciation
     //
-    foo.getTodayGroopys = function() {
-        return foo.M.get('http://23.98.37.11/api/groopy/list.php')
+    foo.getTodayGroopys = function(url) {
+        return foo.M.get(url)
     }
     foo.getTomorrowGroopys = function() {
         return foo.M.get('json/groopys.json')
@@ -245,8 +260,21 @@ function ClientgroopyViewModel() {
         }
     }
 
+    foo.getMyGroopys = function(url) {
+        return foo.M.get(url)
+    }
+
+    foo.updateMyGroopys = function() {
+        foo.getMyGroopys(`/user/groopys.php?id={${foo.accountID}}`)
+        .then(function(response) {
+            for (const id of response.records) {
+                foo.get
+            }
+        })
+    }
+
     foo.initApp = function() {
-        foo.getTodayGroopys()
+        foo.getTodayGroopys('http://23.98.37.11/api/groopy/list.php')
         .then(foo.setupGroopys)
         .then(function() {
             foo.getTomorrowGroopys().then(foo.setupGroopysTomorrow);
@@ -255,6 +283,8 @@ function ClientgroopyViewModel() {
             foo.activeGroopy('GroopyItem');
             navigator.geolocation.getCurrentPosition(function(pos){ foo.curPosition(pos); });
         });
+
+        foo.updateMyGroopys
     }
 
     // Call Start the application
