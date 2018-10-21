@@ -23,7 +23,7 @@ class Modelgroopy {
         console.log(`Putting object:
                     ${options}`);
         return fetch(url,{
-            method: `post`,
+            method: `put`,
             body: JSONstringify(options)
         }).then(response => response.json())
     }
@@ -32,7 +32,7 @@ class Modelgroopy {
         console.log(`Deleting object:
                     ${options}`);
         return fetch(url,{
-            method: `post`,
+            method: `delete`,
             body: JSONstringify(options)
         }).then(response => response.json())
     }
@@ -199,18 +199,37 @@ function ClientgroopyViewModel() {
     // Start the applciation
     //
     foo.getTodayGroopys = function() {
-        return foo.M.get('/json/groopys.json')
+        return foo.M.get('http://23.98.37.11/api/groopy/list.php')
     }
     foo.getTomorrowGroopys = function() {
-        return foo.M.get('json/groopys-tomorrow.json')
+        return foo.M.get('json/groopys.json')
     }
     foo.setupGroopys = function(response) {
-        let day;
-        (response.day == 'today') ? day = 'activeGroopyToday' : day = 'activeGroopyTomorrow'
+        let day = 'activeGroopyToday';
         foo[day]([]);
-        for (const gItem of response.data) {
+        for (const gItem of response.records) {
             if(!gItem.image) {
-                gItem.image
+                gItem.image = 'images/groopy-logo.png';
+            }
+
+            gItem.peopleArray = ko.observableArray();
+            for (var i = 0; i < gItem.peopleTotal; i++) {
+                var filled = (i <= gItem.peopleJoining);
+                gItem.peopleArray.push({filled})
+            }
+            gItem.displayTime = ko.computed(function() {
+                return `${gItem.timeStart} - ${gItem.timeEnd}`;        
+            });
+            gItem.help = ko.observable(gItem.needHelp);
+            foo[day].push(gItem);
+        }
+    }
+    foo.setupGroopysTomorrow = function(response) {
+        let day = 'activeGroopyTomorrow';
+        foo[day]([]);
+        for (const gItem of response.records) {
+            if(!gItem.image) {
+                gItem.image = 'images/groopy-logo.png';
             }
 
             gItem.peopleArray = ko.observableArray();
@@ -230,7 +249,7 @@ function ClientgroopyViewModel() {
         foo.getTodayGroopys()
         .then(foo.setupGroopys)
         .then(function() {
-            foo.getTomorrowGroopys().then(foo.setupGroopys);
+            foo.getTomorrowGroopys().then(foo.setupGroopysTomorrow);
         }).then(function() {
             foo.subMenuShow(true);
             foo.activeGroopy('GroopyItem');

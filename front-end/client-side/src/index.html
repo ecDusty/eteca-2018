@@ -21,6 +21,10 @@
 
 <body>
 <!--  -->
+    <!-- <div class="welcome">
+        <img src="images/groopy-logo-white.png" alt="Groopy Logo">
+        <h1>Welcome</h1>
+    </div> -->
     <div class="app-Header">
         <div class="location search" >
             <i data-bind="css: { show: locationShow() == true, hide: activeExtra() == true }" class="fas fa-map-marked-alt"></i>
@@ -65,7 +69,7 @@
     <!-- WELCOME TEMPLATE -->
     
     <script type="text/html" id="welcomePage">
-        <div class="welcome-page" data-bind="css: { show: groopyPage.show() == true }">
+        <div class="welcome-page" data-bind="css: { show: activeExtra == true }">
         </div>
     </script>
     
