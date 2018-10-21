@@ -2,7 +2,7 @@
     "day":"today",
     "records":[  
        {  
-          "name":"Elcharo Mexican Restaurant",
+          "name":"El Charro Mexican Cantina",
           "image":"images/tacos.jpg",
           "location": {
               "addressOne":"",
@@ -11,7 +11,7 @@
               "country":""
           },
           "cuisineType":"Mexican",
-          "offer":"Set meal $120 off a la carte",
+          "offer":"15% off a la carte",
           "timeStart":"12:30pm",
           "timeEnd":"1:30pm",
           "peopleTotal":8,
@@ -20,16 +20,16 @@
           "needHelp":false
        },
        {  
-          "name":"Sample Restaurant",
+          "name":"Shanghai Oriental",
           "image":"images/chinese-food.jpg",
           "location": {
               "addressOne":"",
               "addressTwo":"",
-              "city":"Pukfulam",
+              "city":"Pokfulam",
               "country":""
           },
           "cuisineType":"Chinese",
-          "offer":"Set meal 17% off a la carte",
+          "offer":"20% off a la carte",
           "timeStart":"12:30pm",
           "timeEnd":"1:30pm",
           "peopleTotal":9,
@@ -38,7 +38,7 @@
           "needHelp":true
        },
        {  
-          "name":"Sample Restaurant",
+          "name":"Beef & Liberty",
           "image":"images/western-food.jpg",
           "location": {
               "addressOne":"",
@@ -47,7 +47,7 @@
               "country":""
           },
           "cuisineType":"Western",
-          "offer":"Set meal $157 off a la carte",
+          "offer":"17% off a la carte",
           "timeStart":"1:30pm",
           "timeEnd":"2:30pm",
           "peopleTotal":6,
@@ -56,7 +56,7 @@
           "needHelp":false
        },
        {  
-          "name":"Sample Restaurant",
+          "name":"La Cucina Italian",
           "image":"images/italy-food.jpg",
           "location": {
               "address1":"",
@@ -65,7 +65,7 @@
               "country":""
           },
           "cuisineType":"Italian",
-          "offer":"Set meal 13% off a la carte",
+          "offer":"13% off a la carte",
           "timeStart":"1:30pm",
           "timeEnd":"2:30pm",
           "peopleTotal":6,

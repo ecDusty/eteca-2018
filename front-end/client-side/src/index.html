@@ -118,7 +118,7 @@
             </div>
             <h3 class="title" data-bind="text: groopyPage.name"></h3>
             <p class="cuisine" data-bind="text: groopyPage.cuisineType"></p>
-            <p class="city" data-bind=""><i class="fas fa-map-marker-alt"></i><span data-bind="text: groopyPage.location.address1"></span>,<span data-bind="text: groopyPage.location.city"></span></p>
+            <p class="city" data-bind=""><i class="fas fa-map-marker-alt"></i><span data-bind="text: groopyPage.location.address1"></span>, <span data-bind="text: groopyPage.location.city"></span></p>
             <p class="time" data-bind="text: groopyPage.displayTime"></p>
             <p class="offer" data-bind="text: groopyPage.offer"></p>
             <div class="attendies" data-bind="foreach: groopyPage.peopleArray">
@@ -126,7 +126,7 @@
             </div>
             <div class="help" data-bind="css: { show: groopyPage.needHelp() == true } ">
                 <i class="fas fa-exclamation-circle"></i>
-                <p>Help someone fill there empty seat!</p>
+                <p>Help someone fill their empty seat!</p>
             </div>
             <div class="buttons">
                 <button class="signup" data-bind="click: registerGroopy">Join groopy</button>
