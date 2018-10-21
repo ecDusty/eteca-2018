@@ -293,7 +293,7 @@ function ClientgroopyViewModel() {
 
     foo.registerGroopy = function() {
         foo.groopyPageReset
-        foo.M.postG('http://23.98.37.11/api/user/join.php?', {
+        foo.M.postG('http://23.98.37.11/api/user/join.php', {
             id: foo.accountID,
             g_id: foo.groopyPage.id()
         }).then(function(){
